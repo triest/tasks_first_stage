@@ -1,8 +1,9 @@
 <?
 
-echo "string";
 header('Content-Type: text/html; charset=utf-8');
-echo "task1";
+echo "Task 1 \n"; 
+//header('Content-Type: text/html; charset=utf-8');
+
  /*
  1. С помощью цикла while выведите все числа в промежутке от 0 до 100, которые
 делятся на 3 без остатка.
@@ -26,9 +27,9 @@ $i++;
 …
 10 – четное число
 */
-
+echo "<br>";
 echo "\n";
-echo "task2\n";
+echo "task2\n";echo "<br>";
 
 $i=0;
 
@@ -51,14 +52,14 @@ if ($i==0){
 }
 }while ( $i<= 10);
 
-
-echo "\n task3 \n";
+echo "<br>";
+echo "\n task3 \n";echo "<br>";
 
 for ($i=0; $i < 9; $i++,print_r($i)) { 
 	# code...
 }
-
-echo "\n task4 \n";
+echo "<br>";
+echo "\n task4 \n";echo "<br>";
 
 $arr=array(
   'Московская  область'=>["Москва","Королев"],
@@ -82,8 +83,8 @@ foreach ($keys as $key) {
 	}
 	echo "\n";
 }
-
-echo "\n task5 \n";
+echo "<br>";
+echo "\n task5 \n";echo "<br>";
 /*5. Задание со звездочкой. Повторите предыдущее задание, но выводите на экран
 только города, начинающиеся с буквы «К».
 */
@@ -100,7 +101,7 @@ foreach ($keys as $key) {
 
 
 echo "<br>";
-echo "Task 6\n";
+echo "Task 6\n";echo "<br>";
 /*
 6. Объявите массив, индексами которого являются буквы русского языка, а
 значениями – соответствующие латинские буквосочетания (‘а’=> ’a’, ‘б’ => ‘b’, ‘в’
@@ -109,33 +110,66 @@ echo "Task 6\n";
 
 */
 
-$verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','э' => 'e', 'ю' => 'yu', 'я' => 'ya');
+$verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' => 'e','ё' => 'io','ж' => 'zh','г' => 'g',
+'з' => 'z', 'и' => 'i', 'й' => 'j',
+'г' => 'g',
+'к' => 'k', 'л' => 'l','м' => 'm','н' => 'n','о' => 'o','р' => 'r','с' => 's','т' => 't','у' => 'u','ф' => 'f','х' => 'ch',
+'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','ь' => '\'','э' => 'eh','ю' => 'ju', 'я' => 'ja',
+	'э' => 'e', 'ю' => 'yu', 'я' => 'ya');
 
 function transtation($input,$verbs){
 	//echo $input;
-	$input=str_split($input);
-	//print_r($input);
+	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
+	//$input=str_split($input);
+	print_r($input);
 	$rez='';
 	//print_r($verbs);
-	foreach ($input as $key) {
-	       echo $key;
-	     // var_dump($verbs[$key]);
+	foreach ($input as $key=>$value) {
+	//	  echo "Key1: ";
+	  //     echo $value;  ;
+		     echo $verbs[$value];
+	      // var_dump($verbs[$key]);
 	       // echo "string";
 	}
 	return $rez;
 }
 
-$answer=transtation('абвг',$verbs);
+$answer=transtation("абвг",$verbs);
 
+echo $answer;
 
-echo "Task 7";
+echo "<br>";
+echo "\n Task 7 \n";echo "<br>";
+/*
+7. Напишите функцию, которая заменяет в строке пробелы на подчеркивания и
+возвращает видоизмененную строчку.
 
+*/
 function space($str){
    
    return str_replace(' ', '_', $str);
 }
 
+
 $temp=space("Ghbdtn mir");
 echo $temp;
+echo "<br>";echo "<br>";
+echo "\nTask 8 \n";echo "<br>";
 
-echo "Task 8";
+/*
+8. Объедините две ранее написанные функции в одну, которая получает строку на
+русском языке, производит транслитерацию и замену пробелов на подчеркивания
+(аналогичная задача решается при конструировании url-адресов на основе названия
+статьи в блогах).
+
+*/
+
+function string_to_url($str){
+	$str=transtation($str,$verbs); //транслит
+	echo "\n";
+	echo $str;
+	$str=space($str);//пробелы
+	return $str;
+}
+
+ string_to_url("привет мир");
