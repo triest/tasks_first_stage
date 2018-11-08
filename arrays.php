@@ -115,26 +115,29 @@ $verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' =
 'г' => 'g',
 'к' => 'k', 'л' => 'l','м' => 'm','н' => 'n','о' => 'o','р' => 'r','с' => 's','т' => 't','у' => 'u','ф' => 'f','х' => 'ch',
 'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','ь' => '\'','э' => 'eh','ю' => 'ju', 'я' => 'ja',
-	'э' => 'e', 'ю' => 'yu', 'я' => 'ya');
+	'э' => 'e', 'ю' => 'yu', 'я' => 'ya', ' ' => ' ','п'=>'p');
 
 function transtation($input,$verbs){
 	//echo $input;
 	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
 	//$input=str_split($input);
-	print_r($input);
+//	print_r($input);
 	$rez='';
 	//print_r($verbs);
 	foreach ($input as $key=>$value) {
 	//	  echo "Key1: ";
 	  //     echo $value;  ;
-		     echo $verbs[$value];
+		  //   echo $verbs[$value];
+		     $rez.=$verbs[$value];
 	      // var_dump($verbs[$key]);
 	       // echo "string";
 	}
+
+	echo $rez;
 	return $rez;
 }
 
-$answer=transtation("абвг",$verbs);
+$answer=transtation("привет мир",$verbs);
 
 echo $answer;
 
@@ -151,8 +154,8 @@ function space($str){
 }
 
 
-$temp=space("Ghbdtn mir");
-echo $temp;
+//$temp=space("Privet mir");
+//echo $temp;
 echo "<br>";echo "<br>";
 echo "\nTask 8 \n";echo "<br>";
 
@@ -165,11 +168,13 @@ echo "\nTask 8 \n";echo "<br>";
 */
 
 function string_to_url($str){
+//	echo "task8";
+	echo $str;
 	$str=transtation($str,$verbs); //транслит
-	echo "\n";
 	echo $str;
 	$str=space($str);//пробелы
 	return $str;
 }
 
- string_to_url("привет мир");
+$temp=string_to_url("приветмир8");
+echo $temp;
