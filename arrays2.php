@@ -11,29 +11,29 @@ function transtation($input,$verbs){
 	//echo $input;
 	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
 	//$input=str_split($input);
-	//print_r($input);
+	print_r($input);
 	$rez='';
 //	print_r($verbs);
 	foreach ($input as $key=>$value) {
-		 // echo "Key1: ";
+		  echo "Key1: ";
 	     //  echo $value;  ;
 	     //  echo "=>";
-		  //   echo $verbs[$value];
+//		     echo $verbs[$value];
 		  //   echo "\n";
 		  //  echo "<br>";
 		     $rez.=$verbs[$value];
 	      // var_dump($verbs[$key]);
-		    // echo $rez;
+		     echo $rez;
 		   //  echo "\n";
 	       // echo "string";
 	}
 //	echo "<br>";
-//	echo "in translation: ";
+    echo "in translation: ";
 	echo $rez; echo "\n";
 	return $rez;
 }
 
-$answer=transtation("привет_мир",$verbs);
+//$answer=transtation("привет_мир",$verbs);
 
 //echo $answer;
 /*
@@ -63,16 +63,17 @@ function space($str){
 function string_to_url($str){
 	$str=space($str);
 //	echo "string to url"; echo "<br>";
-	echo $str;
+//	echo $str;
 
 	$str=transtation($str,$verbs); //транслит
+	echo $str;
+	return $str;
 /*	echo "from transtation:"; echo "\n";
 */
 }
 
 
 $temp=string_to_url("привет мир");
-
 echo "<br>";
 echo "Answer:";
 echo $temp;

@@ -16,6 +16,10 @@
         if($operation==='/'){
         	$message=$first/$second;
         }
+        if($operation!=='+' and $operation!=='-' and $operation!=='*' and $operation!=='/'){
+        	$message="Не верная операция";
+        }
+
     }
 
         ?>
@@ -27,12 +31,15 @@
     </head>
     <body>
         <form action="#" method="post">
+        	<label>Первое число:</label>
             <input type="number" name="first"> <br>
+ 			<label>Операция:</label>
             <input type="text" name="operation"><br>
+             <label>Второе число:</label>
             <input type="number" name="second"><br>
             <input type="submit" name="SubmitButton">
         </form>
-        <?php echo "The Answer is " .$message; ?>
+        <?php echo "Ответ " .$message; ?>
 
     </body>
     </html>
