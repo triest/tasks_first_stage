@@ -8,25 +8,28 @@ $verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' =
 	'э' => 'e', 'ю' => 'yu', 'я' => 'ya', ' ' => ' ','п'=>'p','_'=>'_');
 
 function transtation($input,$verbs){
-//	echo $input;
+	//echo $input;
 	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
 	//$input=str_split($input);
-	print_r($input);
+	//print_r($input);
 	$rez='';
 //	print_r($verbs);
 	foreach ($input as $key=>$value) {
-	//	  echo "Key1: ";
-	  //     echo $value;  ;
-		     echo $verbs[$value];
+		 // echo "Key1: ";
+	     //  echo $value;  ;
+	     //  echo "=>";
+		  //   echo $verbs[$value];
+		  //   echo "\n";
 		  //  echo "<br>";
 		     $rez.=$verbs[$value];
 	      // var_dump($verbs[$key]);
-		 //    echo $rez;
+		    // echo $rez;
+		   //  echo "\n";
 	       // echo "string";
 	}
-	echo "<br>";
-	echo "in translation: ";
-	echo $rez; echo "<br>";
+//	echo "<br>";
+//	echo "in translation: ";
+	echo $rez; echo "\n";
 	return $rez;
 }
 
@@ -47,7 +50,7 @@ function space($str){
 //$temp=space("Privet mir");
 //echo $temp;
 //echo "<br>";echo "<br>";
-echo "\nTask 8 \n";echo "<br>";
+//echo "\nTask 8 \n";echo "<br>";
 
 /*
 8. Объедините две ранее написанные функции в одну, которая получает строку на
@@ -59,7 +62,7 @@ echo "\nTask 8 \n";echo "<br>";
 
 function string_to_url($str){
 	$str=space($str);
-	echo "string to url"; echo "<br>";
+//	echo "string to url"; echo "<br>";
 	echo $str;
 
 	$str=transtation($str,$verbs); //транслит
@@ -69,4 +72,7 @@ function string_to_url($str){
 
 
 $temp=string_to_url("привет мир");
-//echo $temp;
+
+echo "<br>";
+echo "Answer:";
+echo $temp;

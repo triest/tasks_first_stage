@@ -92,7 +92,7 @@ foreach ($keys as $key) {
 	echo ($key);echo ":"; echo "\n";
 	foreach ($arr[$key] as $city) {
 		$temp=substr($city,0,1);
-		// echo $temp;
+		 echo $temp;
 	 	if ($temp === "K") {echo $city; }	
 		
 	}
