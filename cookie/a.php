@@ -7,6 +7,8 @@ $name=$_COOKIE['auch'];
 //echo $name; echo "\n";
 setcookie($name,'a');
 
+
+echo "page a save in cookie";
 /* if(!$_COOKIE[$AUTH_USER]){
  			setcookie($_SESSION['login'] ,"a");
           }
