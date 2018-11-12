@@ -7,23 +7,30 @@ $verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' =
 'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','ь' => '\'','э' => 'eh','ю' => 'ju', 'я' => 'ja',
 	'э' => 'e', 'ю' => 'yu', 'я' => 'ya', ' ' => ' ','п'=>'p','_'=>'_');
 
-function transtation($input,$verbs){
+function transtation($input){
 	//echo $input;
+
 	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
 	//$input=str_split($input);
 	print_r($input);
 	$rez='';
+	global $verbs;
+//	echo "verbs";
 //	print_r($verbs);
+//	die();
 	foreach ($input as $key=>$value) {
-		  echo "Key1: ";
-	     //  echo $value;  ;
+		//  echo "\n";
+		//  echo "Key1: ";
+	   //    echo $value;  ;
 	     //  echo "=>";
 //		     echo $verbs[$value];
-		  //   echo "\n";
+		//     echo "\n";
 		  //  echo "<br>";
+		  //  $temp=$verbs[$value];
+		   // echo $temp;
 		     $rez.=$verbs[$value];
 	      // var_dump($verbs[$key]);
-		     echo $rez;
+		//     echo $rez;
 		   //  echo "\n";
 	       // echo "string";
 	}

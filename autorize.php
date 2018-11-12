@@ -16,7 +16,7 @@ $pass='admin';
         if(isset($_COOKIE[$name])){
         	$page=$_COOKIE[$name];
         	echo $page;
-        	die();
+       	die();
         	header("Location: http://base/".$page.".php");
         		die();
         }
