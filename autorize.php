@@ -55,15 +55,24 @@ $pass='admin';
         Логин: admin
         <br>
         Пароль: admin
-        <form action="#" method="post">
-           <div class="form-group">
+        <form class="form-horizontal" action="#" method="post">
+          <div class="form-group">
             <div class="input-group mb-3">
-          <label>Login</label>
-            <input type="text" name="login"><br>
-            <label>Passowrd</label>
-            <input type="text" name="pass"><br>
+               <label for="login" class="control-label col-xs-2">Login:</label>
+                <div class="col-xs-10">
+                 <input type="text" name="login" id="login" class="form-control">
+               </div>
+               <label class="control-label col-xs-2">Passowrd:</label>
+                <div class="col-xs-10">
+                 <input type="text" name="pass" class="form-control">
+               </div>
           </div>
+          <br>
+            <div class="form-group"> 
+                 <div class="col-xs-offset-1 col-xs-10">
             <input type="submit" name="SubmitButton">
+                  </div>
+            </div>
           </div>
         </form>
        </div>

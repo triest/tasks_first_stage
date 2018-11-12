@@ -42,11 +42,14 @@ $pass='admin';
 <?php echo $name_page;  ?>
 
         <form action="#" method="post">
-          <label>Login</label>
+            <div class="form-group">
+          <label>Login:</label>
+
             <input type="text" name="login"><br>
-            <label>Passowrd</label>
+            <label>Passowrd:</label>
             <input type="text" name="pass"><br>
             <input type="submit" name="SubmitButton">
+          </div>
         </form>
        
 

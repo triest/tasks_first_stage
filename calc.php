@@ -35,6 +35,7 @@
         <div class="row">
             <br><br>
         <form action="#" method="post">
+            
         	<label>Первое число:</label>
             <input type="number" name="first"> <br>
  			<label>Операция:</label>
