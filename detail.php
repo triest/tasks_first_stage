@@ -38,7 +38,8 @@ $url="base/uploads/".$image;
       ?>
       <br> <br> 
 
-      <? echo " <a href=\"http://base/file.php\">Go Back!</a>"; ?>
+   
+      <a class="btn btn-primary" href="http://base/file.php"> Назад </a>
     </div>
 </div>
     </body>

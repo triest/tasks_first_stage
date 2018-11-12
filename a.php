@@ -1,13 +1,28 @@
 <?
-//echo "string";
-//echo  setcookie($_COOKIE[$AUTH_USER],"value",time()+$int);
-//echo $_SESSION['login'];echo "\n";
 $name=$_COOKIE['auch'];
-//echo "auth: ";
-//echo $name; echo "\n";
 setcookie($name,'a');
+//echo "is are page A";
+?>
 
-/* if(!$_COOKIE[$AUTH_USER]){
- 			setcookie($_SESSION['login'] ,"a");
-          }
-          */
+  <!DOCTYPE html>
+    <html>
+    <head>
+        <title>А</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+         <style type="text/css">
+         .input-group-addon {
+    min-width:300px;
+    text-align:left;
+}
+       </style>
+    </head>
+    <body>
+      <br><br>
+      <div class="container">
+  <div class="row">
+   Это страница А.
+       </div>
+     </div>
+
+    </body>
+    </html>

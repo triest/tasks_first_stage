@@ -77,10 +77,10 @@ foreach ($images as $image) {
 	<div class="container">
 	<div class="row">
  	 <form action="#" method="post" enctype="multipart/form-data">
-        <h2>Upload File</h2>
-        <label for="fileSelect">Filename:</label>
+        <h2>Загрузка изображений</h2>
+        <label for="fileSelect">Изображение:</label>
         <input type="file" name="photo" id="fileSelect">
-        <input type="submit" name="submit" value="Upload">
+        <input type="submit" name="submit" value="Загрузить">
     
     </form>
    

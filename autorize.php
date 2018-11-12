@@ -37,18 +37,37 @@ $pass='admin';
     <html>
     <head>
         <title>Авторизация</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+         <style type="text/css">
+         .input-group-addon {
+    min-width:300px;
+    text-align:left;
+}
+       </style>
     </head>
     <body>
+      <br><br>
+      <div class="container">
+  <div class="row">
 <?php echo $name_page;  ?>
-
+       <b> Войдите: </b>
+       <br>
+        Логин: admin
+        <br>
+        Пароль: admin
         <form action="#" method="post">
+           <div class="form-group">
+            <div class="input-group mb-3">
           <label>Login</label>
             <input type="text" name="login"><br>
             <label>Passowrd</label>
             <input type="text" name="pass"><br>
+          </div>
             <input type="submit" name="SubmitButton">
+          </div>
         </form>
-       
+       </div>
+     </div>
 
     </body>
     </html>
