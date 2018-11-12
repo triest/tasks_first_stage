@@ -17,11 +17,11 @@ $pass='admin';
         	$page=$_COOKIE[$name];
         //	echo $page;
       //  	die();
-        	header("Location: http://base/".$page.".php");
+        	header("Location: http://tasksfirststage/".$page.".php");
         		die();
         }
         else{
-  			header("Location: http://base/chose.php");
+  			header("Location: http://tasksfirststage/chose.php");
            die();
        }
   	}
@@ -46,9 +46,9 @@ $pass='admin';
        </style>
     </head>
     <body>
-      <br><br>
-      <div class="container">
-  <div class="row">
+    
+    <div class="container">
+     <div class="row">
 <?php echo $name_page;  ?>
        <b> Войдите: </b>
        <br>

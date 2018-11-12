@@ -4,7 +4,6 @@ $name=$_COOKIE['auch'];
 //echo $name; echo "\n";
 setcookie($name,'b');
 
-echo "is are page B";
 ?>
 
 
