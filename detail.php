@@ -26,15 +26,20 @@ $url="base/uploads/".$image;
     <html>
     <head>
         <title>Изображение</title>
+         <!--add boootstrap -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body>
-   
-   <?
+    <div class="container">
+  <div class="row">
+      <?
    //  echo "/uploads/$row[1]";echo "<br>";
-  echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
-  ?>
-  <br> <br> 
+      echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
+      ?>
+      <br> <br> 
 
-<? echo " <a href=\"http://base/file.php\">Go Back!</a>"; ?>
+      <? echo " <a href=\"http://base/file.php\">Go Back!</a>"; ?>
+    </div>
+</div>
     </body>
     </html>

@@ -63,32 +63,34 @@ foreach ($images as $image) {
 	}
 
 }
-
 //фильтрует название
-
-
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Галлерея изображени</title>
+	  <!--add boootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+	<div class="container">
+	<div class="row">
  	 <form action="#" method="post" enctype="multipart/form-data">
         <h2>Upload File</h2>
         <label for="fileSelect">Filename:</label>
         <input type="file" name="photo" id="fileSelect">
         <input type="submit" name="submit" value="Upload">
-        <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png formats allowed to a max size of 5 MB.</p>
+    
     </form>
-
-<?foreach ($images as $image) {
-	echo "<a href='detail.php\\?image=$image'>";
- echo "<img src='$image_folder$image' \>";
-  echo "</a>";
-}
- ?>
+   
+	<?foreach ($images as $image) {
+		echo "<a href='detail.php\\?image=$image'>";
+	 echo "<img src='$image_folder$image' \>";
+ 	 echo "</a>";
+	}
+	 ?>
+</div>
+</div>
 </body>
 </html>
