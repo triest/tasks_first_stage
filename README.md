@@ -5,3 +5,6 @@
 3.  Циклы и массивы в файле arrays.PHP
 4. Задание 8 в файле arrays2.php
 5. Калькулятор в файле calc.PHP
+6. Cookies и сессии PHP в файле cookie.PHP
+  login: admin
+  pass: admin

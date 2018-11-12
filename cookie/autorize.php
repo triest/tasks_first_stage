@@ -16,12 +16,12 @@ $pass='admin';
         if(isset($_COOKIE[$name])){
         	$page=$_COOKIE[$name];
         //	echo $page;
-      //  	die();
-        	header("Location: http://base/".$page.".php");
+        //	die();
+        	header("Location: http://cookie/".$page.".php");
         		die();
         }
         else{
-  			header("Location: http://base/chose.php");
+  			header("Location: http://cookie/chose.php");
            die();
        }
   	}
