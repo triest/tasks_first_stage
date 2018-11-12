@@ -4,22 +4,22 @@
 $quwery=$_SERVER['QUERY_STRING'];
 parse_str($quwery, $get_array);
 
-print_r($get_array); 
+//print_r($get_array); 
 //echo $get_array['image'];
 $image_folder="uploads/"; echo "<br>";
 //echo "imafe folder ";
 //echo $image_folder;
-echo "<br>"; 
+//echo "<br>"; 
 $image=$get_array['image'];echo "<br>";
-echo "image:";
-print_r($image); echo "<br>";
+//echo "image:";
+//print_r($image); echo "<br>";
 //echo $image['image'];
 $rez= $image_folder.$image;
 //echo "Rez "; echo $rez; echo "<br>";
 //echo $_SERVER['SERVER_NAME'] ;
 $url=$rez;
 $url="base/uploads/".$image;
-echo $url;
+//echo $url;
 ?>
 
     <!DOCTYPE html>
@@ -30,9 +30,11 @@ echo $url;
     <body>
    
    <?
-     echo "/uploads/$row[1]";echo "<br>";
+   //  echo "/uploads/$row[1]";echo "<br>";
   echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
   ?>
-echo " <a href="http://base/file.php">Click here</a>";
+  <br> <br> 
+
+<? echo " <a href=\"http://base/file.php\">Go Back!</a>"; ?>
     </body>
     </html>

@@ -58,7 +58,7 @@ unset($images[0]);
 unset($images[1]);
 foreach ($images as $image) {
 	if ($image!='.' && $image!='..'){
-	echo $image; echo "<br>";
+//	echo $image; echo "<br>";
 
 	}
 
@@ -73,7 +73,7 @@ foreach ($images as $image) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Галлерея изображений</title>
+	<title>Галлерея изображени</title>
 </head>
 <body>
  	 <form action="#" method="post" enctype="multipart/form-data">
