@@ -15,7 +15,7 @@ $link = mysqli_connect($host, $user, $password, $database)
  if($result)
 {
     $rows = mysqli_num_rows($result); // количество полученных строк
-    echo $rows;
+  //  echo $rows;
  }   
 // выполняем операции с базой данных
      

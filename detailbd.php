@@ -8,7 +8,7 @@ $password = ''; // пароль
 $quwery=$_SERVER['QUERY_STRING'];
 parse_str($quwery, $get_array);
 
-print_r($get_array); 
+//print_r($get_array); 
 //echo $get_array['image'];
 $image_folder="uploads/"; echo "<br>";
 //echo "imafe folder ";
@@ -19,12 +19,10 @@ $image=$get_array['image'];echo "<br>";
 //print_r($image); echo "<br>";
 //echo $image['image'];
 $rez= $image_folder.$image;
-//echo "Rez "; echo $rez; echo "<br>";
-//echo $_SERVER['SERVER_NAME'] ;
+
 $url=$rez;
-//$url="base/uploads/".$image;
-//echo $url;
-echo "Image: ".$image;
+
+
 $link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link));
 
@@ -32,9 +30,22 @@ $query=  "UPDATE images
     SET views = views + 1
     WHERE name = '".$image."'";
 
-   echo $query; 
+ //  echo $query; 
 
  $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+
+//get views
+
+ $query=  "SELECT views FROM `images`
+    WHERE name = '".$image."'limit 1 ";
+
+     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+ if($result)
+{
+    $row = mysqli_fetch_row($result);
+  
+ }   
+
 
 ?>
 
@@ -47,10 +58,11 @@ $query=  "UPDATE images
    
 
     <?
-     echo "/uploads/$row[1]";echo "<br>";
+      echo "Просмотры:"; echo "$row[0]"; echo "<br>";
+
   echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
   ?>
-
-   echo " <a href="http://base/bd.php">Click here</a>";
+   <br>
+  <a href="http://base/bd.php">Click here</a>
     </body>
     </html>

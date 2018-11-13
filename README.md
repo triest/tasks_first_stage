@@ -8,3 +8,4 @@
 6. Cookies и сессии PHP в папке  cookie. Запускать файл auth.php
   login: admin
   pass: admin
+7. 
