@@ -53,16 +53,20 @@ $query=  "UPDATE images
     <html>
     <head>
         <title>Изображение</title>
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body>
-   
-
-    <?
+        <div class="container">
+<div class="row">
+                <?
       echo "Просмотры:"; echo "$row[0]"; echo "<br>";
 
   echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
   ?>
    <br>
   <a href="http://base/bd.php">Click here</a>
+
+        </div>
+      </div>
     </body>
     </html>

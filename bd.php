@@ -102,26 +102,6 @@ if(isset($_GET['get_image'])){
   $query ="SELECT id,name,type,views FROM `images` ORDER BY views DESC";
   $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 
-
-  if($result)
-{
-
-   // $rows = mysqli_num_rows($result); // количество полученных строк 
-    echo "<table><tr><th>Id</th><th>Имя</th><th>Просмотры</th></tr>";
-    /*for ($i = 0 ; $i < $rows ; ++$i)
-    {
-        $row = mysqli_fetch_row($result);
-        echo "<tr>";
-            echo "<td>$row[1]</td>";
-        echo "</tr>";
-    }*/
-    echo "</table>";
-     
-    // очищаем результат
- //   mysqli_free_result($result);
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -130,11 +110,15 @@ if(isset($_GET['get_image'])){
 	<title>Галлерея изображений c базой данных</title>
 </head>
 <body>
+	<div class="container">
+<div class="row">
  	 <form action="#" method="post" enctype="multipart/form-data">
         <h2>Upload File</h2>
         <label for="fileSelect">Filename:</label>
         <input type="file" name="photo" id="fileSelect">
         <input type="submit" name="submit" value="Upload">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
         <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png formats allowed to a max size of 5 MB.</p>
     </form>
 
@@ -155,5 +139,7 @@ if(isset($_GET['get_image'])){
      }
     }
  ?>
+	</div>
+</div>
 </body>
 </html>
