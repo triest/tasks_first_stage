@@ -10,7 +10,7 @@ parse_str($quwery, $get_array);
 
 //print_r($get_array); 
 //echo $get_array['image'];
-$image_folder="uploads/"; echo "<br>";
+$image_folder="bd/uploads/"; echo "<br>";
 //echo "imafe folder ";
 //echo $image_folder;
 //echo "<br>"; 
@@ -61,7 +61,7 @@ $query=  "UPDATE images
                 <?
       echo "Просмотры:"; echo "$row[0]"; echo "<br>";
 
-  echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
+   echo "<img src='/bd/uploads\\$image' width=\"500\" height=\"600\" \>";
   ?>
    <br>
   <a href="http://base/bd.php">Click here</a>

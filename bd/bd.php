@@ -165,7 +165,7 @@ if(isset($_GET['get_image'])){
           if($result)
 {
         $row = mysqli_fetch_row($result);
-      
+      //	echo "<a href='detail.php\\?image=$image'>";
             echo "<a href='detailbd.php\\?image=$row[1]'>"; echo "<br>";
         echo "<img src='uploads_small\\$row[1]' \>"; echo "<br>";
          echo "</a>";
