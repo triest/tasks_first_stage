@@ -29,7 +29,7 @@ mysqli_close($link);
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
-        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg",/* "gif" => "image/gif",*/ "png" => "image/png");
         $filename = $_FILES["photo"]["name"];
         $filetype = $_FILES["photo"]["type"];
         $filesize = $_FILES["photo"]["size"];
@@ -155,7 +155,7 @@ if(isset($_GET['get_image'])){
         <input type="submit" name="submit" value="Upload">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <p> Только .jpg, .jpeg, .gif, .png </p>
+        <p> Только .jpg, .jpeg,.png </p>
     </form>
 
 
