@@ -38,7 +38,7 @@ $url="base/uploads/".$image;
       <br> <br> 
 
    
-      <a class="btn btn-primary" href="http://base/file.php"> Назад </a>
+      <a class="btn btn-primary" href="http://tasksfirststage/gallery/file.php"> Назад </a>
     </div>
 </div>
     </body>
