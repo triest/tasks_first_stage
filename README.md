@@ -8,4 +8,5 @@
 6. Cookies и сессии PHP в папке  cookie. Запускать файл auth.php
   login: admin
   pass: admin
-7. 
+7.  Галлерея изображений: папка gallery. Запускать file.php
+8. Работа с базами данных: запускать  bd/bd.php
