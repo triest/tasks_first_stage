@@ -63,8 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $thumb='uploads_small/'.$filename_new;
                 $truecolor=imagecreatetruecolor($new_widht, $new_hight);
                 if($ext==="gif"){
-                    system("convert ".$filename ."-coalesce coalesce.gif");
-                    system("convert -size 200x100 coalesce.gif -resize 200x10 small.gif");
+                  //  system("convert ".$filename ."-coalesce coalesce.gif");
+                  //  system("convert -size 200x100 coalesce.gif -resize 200x10 small.gif");
                 }
                     else{
                 imagecopyresampled($truecolor, $newfile, 0, 0, 0, 0, $newwidth, $newheigt, $widht, $hight);
@@ -86,6 +86,40 @@ mysqli_close($link);
     } else{
         echo "Error: " . $_FILES["photo"]["error"];
     }
+}
+
+
+function gifResize($file_origin,$file_dest,$percent){       
+   $crop_w = 0;
+   $crop_h = 0;
+   $crop_x = 0;
+   $crop_y = 0;
+   $image = new Imagick($file_origin);
+   $originalWidth = $image->getImageWidth();
+   $originalHeight = $image->getImageHeight();
+   $size_w = ($originalWidth*$percent)/100;
+   $size_h = ($originalHeight*$percent)/100;
+   if(($size_w-$originalWidth)>($size_h-$originalHeight)){
+       $s = $size_h/$originalHeight;
+       $size_w = round($originalWidth*$s);
+       $size_h = round($originalHeight*$s);
+   }else{
+       $s = $size_w/$originalWidth;
+       $size_w = round($originalWidth*$s);
+       $size_h = round($originalHeight*$s);
+   }       
+   $image = $image->coalesceImages();
+
+   foreach ($image as $frame) {
+       $frame->cropImage($crop_w, $crop_h, $crop_x, $crop_y);
+       $frame->thumbnailImage($size_h, $size_w);
+       $frame->setImagePage($size_h, $size_w, 0, 0);
+   }
+   $imageContent = $image->getImagesBlob();
+   $fp = fopen($file_dest,'w');
+   fwrite($fp,$imageContent);
+   fclose($fp);
+
 }
 
 if(isset($_GET['get_image'])){

@@ -1,9 +1,8 @@
-<?php
 
+<?php
 //echo $_SERVER['QUERY_STRING']; 
 $quwery=$_SERVER['QUERY_STRING'];
 parse_str($quwery, $get_array);
-
 //print_r($get_array); 
 //echo $get_array['image'];
 $image_folder="uploads/"; echo "<br>";
@@ -34,7 +33,7 @@ $url="base/uploads/".$image;
   <div class="row">
       <?
    //  echo "/uploads/$row[1]";echo "<br>";
-      echo "<img src='/uploads/$image' width=\"500\" height=\"600\" \>";
+      echo "<img src='/gallery/uploads/$image' width=\"500\" height=\"600\" \>";
       ?>
       <br> <br> 
 
@@ -43,4 +42,4 @@ $url="base/uploads/".$image;
     </div>
 </div>
     </body>
-    </html>
+</html>
