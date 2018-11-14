@@ -64,7 +64,7 @@ $query=  "UPDATE images
    echo "<img src='/bd/uploads\\$image' width=\"500\" height=\"600\" \>";
   ?>
    <br>
-  <a href="http://base/bd.php">Click here</a>
+   <a class="btn btn-primary" href="http://tasksfirststage/bd/bd.php"> Назад </a>
 
         </div>
       </div>

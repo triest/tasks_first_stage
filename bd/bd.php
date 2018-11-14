@@ -40,13 +40,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
         // Verify file size - 5MB maximum
         $maxsize = 5 * 1024 * 1024;
-        if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+        if($filesize > $maxsize) die("Большой размер файла! >5MB.");
     
         // Verify MYME type of the file
         if(in_array($filetype, $allowed)){
             // Check whether file exists before uploading it
             if(file_exists("uploads/" . $filename)){
-                echo $filename . " is already exists.";
+                echo $filename . " Файл уже сешествует.";
             } else{
             	echo "Old filename:"; echo $filename;
             	$ext = end(explode(".", $filename));
@@ -57,23 +57,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // создаём уменшеную копию
                 $filename='uploads/'.$filename_new;
                 list($widht,$hight)=getimagesize($filename);
-                $newfile=imagecreatefromjpeg($filename);
+               
                 $newwidth=$new_widht;
                 $newheigt=$new_hight;
                 $thumb='uploads_small/'.$filename_new;
                 $truecolor=imagecreatetruecolor($new_widht, $new_hight);
                 if($ext==="gif"){
+                	gifResize($filename,$filename_new,50);
                   //  system("convert ".$filename ."-coalesce coalesce.gif");
                   //  system("convert -size 200x100 coalesce.gif -resize 200x10 small.gif");
                 }
                     else{
+                    	 $newfile=imagecreatefromjpeg($filename);
                 imagecopyresampled($truecolor, $newfile, 0, 0, 0, 0, $newwidth, $newheigt, $widht, $hight);
                 imagejpeg($truecolor,$thumb,100);
 }
-                echo $name; echo "<br>";
+              //  echo $name; echo "<br>";
              //   die();
-                 $query ="INSERT INTO `images`( `name`) VALUES ('$filename_new')";
-                 echo $query;
+                 $query ="INSERT INTO `images`( `name`,`type`) VALUES ('$filename_new','$ext')";
+             //    echo $query;
                $link = mysqli_connect($host, $user, $password, $database); 
     // выполняем запрос
   				  $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
@@ -81,7 +83,7 @@ mysqli_close($link);
            
             } 
         } else{
-            echo "Error: There was a problem uploading your file. Please try again."; 
+            echo "Ошибка загрузки."; 
         }
     } else{
         echo "Error: " . $_FILES["photo"]["error"];
@@ -147,13 +149,13 @@ if(isset($_GET['get_image'])){
 	<div class="container">
 <div class="row">
  	 <form action="#" method="post" enctype="multipart/form-data">
-        <h2>Upload File</h2>
-        <label for="fileSelect">Filename:</label>
+        <h2>Загрузить изображене</h2>
+        <label for="fileSelect">Файл:</label>
         <input type="file" name="photo" id="fileSelect">
         <input type="submit" name="submit" value="Upload">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png formats allowed to a max size of 5 MB.</p>
+        <p> Только .jpg, .jpeg, .gif, .png </p>
     </form>
 
 
