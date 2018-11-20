@@ -14,7 +14,12 @@
         	$message=$first*$second;
         }
         elseif($operation==='/'){
-        	$message=$first/$second;
+        	if($second==0){
+        	   $message="Деление на 0";
+        	}
+        	else{
+        		$message=$first/$second;
+        	}
         }
         elseif($operation!=='+' and $operation!=='-' and $operation!=='*' and $operation!=='/'){
         	$message="Не верная операция";
