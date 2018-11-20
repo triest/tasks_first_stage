@@ -111,19 +111,13 @@ $operation), где $arg1, $arg2 – значения аргументов. $ope
  	switch ($operation) {
  		case 'plus':
  			return add($arg1,$arg2);
- 			break;
  		case 'minus':
  			return minus($arg1,$arg2);
- 			break;
  	    case 'multi':
  	    	return multi($arg1,$arg2);
- 	    	break;
  	    case 'devide':
  	    	return devide($arg1,$arg2);
- 	    	# code...
- 	    	break;
  		default:
- 			# code...
  			break;
  	}
  }
@@ -134,7 +128,7 @@ function max1($arg1,$arg2){
 	if ($arg1>$arg2){
 		return $arg1;
 	}
-	elseif ($arg1<$arg2){
+	if ($arg1<$arg2){ //2.
 		return $arg2;
 	}
 
@@ -157,10 +151,28 @@ function power($val, $pow), где $val – заданное число, $pow �
 */
 
 function power($val, $pow){
-	return  exp($val*log($pow));
+		if($pow==0){
+			return 1;
+		}
+		elseif ($pow<0) {
+			return power(1/$val,-$pow); //отрицательная степень
+		}
+
+	return  $val*power($val, $pow-1);
 }
 
-echo "task 7 \n";
+echo "task 6";
+
+echo " \n 3^2= ";
+echo power(3,2);
+
+echo " \n 3^0= ";
+echo power(3,0);
+
+echo " \n 9^-2= ";
+echo power(9,-2);
+
+echo " \ntask 7 \n";
 /*
 7. Написать функцию, которая принимают в качестве аргументов два числа и
 вычисляет из них большее. Написать такую же функцию, чтобы она вычисляла
@@ -171,13 +183,14 @@ echo "task 7 \n";
 
 */
 $a=20; $b=30;
-
+function calc($a,$b){
 if(max1($a*$b,100)>100 and min1($a*$b,1000)<1000){
-	echo max1($a,$b)-min1($a,$b);
+	return max1($a,$b)-min1($a,$b);
 }
-else{
-	echo $a*$b/max1($a,$b);
+elseif (max1($a*$b,1000)>1000) {
+	return ($a*$b)/max1($a,$b);
+}
 }
 
 echo "\n";
-echo power(2,3);
+echo calc($a,$b);
