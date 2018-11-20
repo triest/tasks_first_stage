@@ -7,16 +7,16 @@
         if($operation==='+'){
         	$message=$first+$second;
         }
-        if($operation==='-'){
+        elseif($operation==='-'){
         	$message=$first-$second;
         }
-        if($operation==='*'){
+        elseif($operation==='*'){
         	$message=$first*$second;
         }
-        if($operation==='/'){
+        elseif($operation==='/'){
         	$message=$first/$second;
         }
-        if($operation!=='+' and $operation!=='-' and $operation!=='*' and $operation!=='/'){
+        elseif($operation!=='+' and $operation!=='-' and $operation!=='*' and $operation!=='/'){
         	$message="Не верная операция";
         }
 
