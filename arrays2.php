@@ -1,42 +1,29 @@
-<?
+<?php
+/*
+6. Объявите массив, индексами которого являются буквы русского языка, а
+значениями – соответствующие латинские буквосочетания (‘а’=> ’a’, ‘б’ => ‘b’, ‘в’
+=> ‘v’, ‘г’ => ‘g’, …, ‘э’ => ‘e’, ‘ю’ => ‘yu’, ‘я’ => ‘ya’).
+Напишите функцию транслитерации строк.
 
+*/
 $verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' => 'e','ё' => 'io','ж' => 'zh','г' => 'g',
 'з' => 'z', 'и' => 'i', 'й' => 'j',
 'г' => 'g',
 'к' => 'k', 'л' => 'l','м' => 'm','н' => 'n','о' => 'o','р' => 'r','с' => 's','т' => 't','у' => 'u','ф' => 'f','х' => 'ch',
-'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','ь' => '\'','э' => 'eh','ю' => 'ju', 'я' => 'ja',
+'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','э' => 'eh','ю' => 'ju', 'я' => 'ja',
 	'э' => 'e', 'ю' => 'yu', 'я' => 'ya', ' ' => ' ','п'=>'p','_'=>'_');
 
-function transtation($input){
-	//echo $input;
-
+function transtation($input,$verbs){
 	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
-	//$input=str_split($input);
-	print_r($input);
+
 	$rez='';
-	global $verbs;
-//	echo "verbs";
-//	print_r($verbs);
-//	die();
+
 	foreach ($input as $key=>$value) {
-		//  echo "\n";
-		//  echo "Key1: ";
-	   //    echo $value;  ;
-	     //  echo "=>";
-//		     echo $verbs[$value];
-		//     echo "\n";
-		  //  echo "<br>";
-		  //  $temp=$verbs[$value];
-		   // echo $temp;
-		     $rez.=$verbs[$value];
-	      // var_dump($verbs[$key]);
-		//     echo $rez;
-		   //  echo "\n";
-	       // echo "string";
+
+		$rez.=$verbs[$value];
+
 	}
-//	echo "<br>";
-    echo "in translation: ";
-	echo $rez; echo "\n";
+
 	return $rez;
 }
 
@@ -54,11 +41,6 @@ function space($str){
 }
 
 
-//$temp=space("Privet mir");
-//echo $temp;
-//echo "<br>";echo "<br>";
-//echo "\nTask 8 \n";echo "<br>";
-
 /*
 8. Объедините две ранее написанные функции в одну, которая получает строку на
 русском языке, производит транслитерацию и замену пробелов на подчеркивания
@@ -67,20 +49,15 @@ function space($str){
 
 */
 
-function string_to_url($str){
+function string_to_url($str,$verbs){
 	$str=space($str);
-//	echo "string to url"; echo "<br>";
-//	echo $str;
-
 	$str=transtation($str,$verbs); //транслит
-	echo $str;
 	return $str;
-/*	echo "from transtation:"; echo "\n";
-*/
+
 }
 
 
-$temp=string_to_url("привет мир");
+$temp=string_to_url("привет мир",$verbs);
 echo "<br>";
-echo "Answer:";
+echo "Answer: ";
 echo $temp;

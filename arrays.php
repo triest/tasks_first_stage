@@ -35,10 +35,10 @@ $i=0;
 
 do{
 
-if ($i==0){
-  echo "Это 0 \n";
-  $i++;
-}
+	if ($i==0){
+  		echo "Это 0 \n";
+  		$i++;
+	}
 	else{
 		$temp=$i%2;
 		if($temp==0){
@@ -48,18 +48,36 @@ if ($i==0){
 	 		echo $i." не четное";
 	 	}
 	 	echo "\n";
-	$i++;
-}
+	
+	}
+$i++;   //вынесен
 }while ( $i<= 10);
 
 echo "<br>";
 echo "\n task3 \n";echo "<br>";
-
-for ($i=0; $i < 9; $i++,print_r($i)) { 
+/*
+3. Задание со звездочкой. Выведите с помощью цикла for числа от 0 до 9, НЕ
+используя тело цикла. То есть выглядеть должно вот так:
+for(…){// здесь пусто}
+ */
+for ($i=0; $i < 9; $i++,print($i.', ')) { //исправлен вывод
 	# code...
 }
 echo "<br>";
 echo "\n task4 \n";echo "<br>";
+
+
+/*5. Задание со звездочкой. Повторите предыдущее задание, но выводите на экран
+только города, начинающиеся с буквы «К».
+*/
+
+
+
+<?php/*5. Задание со звездочкой. Повторите предыдущее задание, но выводите на экран
+только города, начинающиеся с буквы «К».
+*/
+
+
 
 $arr=array(
   'Московская  область'=>["Москва","Королев"],
@@ -68,47 +86,34 @@ $arr=array(
 
 );
 
+
 $keys=array_keys($arr);
-print_r($keys);
+//print_r($keys);
 
 function print_cir($str){
  echo iconv("CP1251", "CP866", $str);
 }
 
+function serach_city($arr,$char){
+$keys=array_keys($arr);
+	
 foreach ($keys as $key) {
 	echo ($key);echo ":"; echo "\n";
 	foreach ($arr[$key] as $city) {
-		echo $city;echo ",";
-		# code..
+		mb_internal_encoding("UTF-8");
+		$temp=mb_substr($city,0,1);
+	if ($temp === "К") {echo $city;echo ", " ;}	
+				
 	}
-	echo "\n";
+	echo "<br>"; 
 }
-echo "<br>";
-echo "\n task5 \n";echo "<br>";
-/*5. Задание со звездочкой. Повторите предыдущее задание, но выводите на экран
-только города, начинающиеся с буквы «К».
-*/
-foreach ($keys as $key) {
-	echo ($key);echo ":"; echo "\n";
-	foreach ($arr[$key] as $city) {
-		$temp=substr($city,0,1);
-		 echo $temp;
-	 	if ($temp === "K") {echo $city; }	
-		
-	}
-	echo "\n";
 }
 
-
+serach_city($arr,'К');
+serach_city($arr,'К');
 echo "<br>";
 echo "Task 6\n";echo "<br>";
-/*
-6. Объявите массив, индексами которого являются буквы русского языка, а
-значениями – соответствующие латинские буквосочетания (‘а’=> ’a’, ‘б’ => ‘b’, ‘в’
-=> ‘v’, ‘г’ => ‘g’, …, ‘э’ => ‘e’, ‘ю’ => ‘yu’, ‘я’ => ‘ya’).
-Напишите функцию транслитерации строк.
 
-*/
 
 $verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' => 'e','ё' => 'io','ж' => 'zh','г' => 'g',
 'з' => 'z', 'и' => 'i', 'й' => 'j',
@@ -117,64 +122,5 @@ $verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' =
 'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','ь' => '\'','э' => 'eh','ю' => 'ju', 'я' => 'ja',
 	'э' => 'e', 'ю' => 'yu', 'я' => 'ya', ' ' => ' ','п'=>'p');
 
-function transtation($input,$verbs){
-	//echo $input;
-	$input = preg_split('//u', $input, -1, PREG_SPLIT_NO_EMPTY);
-	//$input=str_split($input);
-//	print_r($input);
-	$rez='';
-	//print_r($verbs);
-	foreach ($input as $key=>$value) {
-	//	  echo "Key1: ";
-	  //     echo $value;  ;
-		  //   echo $verbs[$value];
-		     $rez.=$verbs[$value];
-	      // var_dump($verbs[$key]);
-	       // echo "string";
-	}
-
-	echo $rez;
-	return $rez;
-}
-
-$answer=transtation("привет мир",$verbs);
-
-echo $answer;
-
-echo "<br>";
-echo "\n Task 7 \n";echo "<br>";
-/*
-7. Напишите функцию, которая заменяет в строке пробелы на подчеркивания и
-возвращает видоизмененную строчку.
-
-*/
-function space($str){
-   
-   return str_replace(' ', '_', $str);
-}
-
-
-//$temp=space("Privet mir");
-//echo $temp;
-echo "<br>";echo "<br>";
-echo "\nTask 8 \n";echo "<br>";
-
-/*
-8. Объедините две ранее написанные функции в одну, которая получает строку на
-русском языке, производит транслитерацию и замену пробелов на подчеркивания
-(аналогичная задача решается при конструировании url-адресов на основе названия
-статьи в блогах).
-
-*/
-
-function string_to_url($str){
-//	echo "task8";
-	echo $str;
-	$str=transtation($str,$verbs); //транслит
-	echo $str;
-	$str=space($str);//пробелы
-	return $str;
-}
-
-$temp=string_to_url("приветмир8");
+//$temp=string_to_url("приветмир8");
 echo $temp;
