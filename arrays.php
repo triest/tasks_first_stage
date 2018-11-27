@@ -1,23 +1,23 @@
 <?
 
 header('Content-Type: text/html; charset=utf-8');
-echo "Task 1 \n"; 
+echo "Task 1 \n";
 //header('Content-Type: text/html; charset=utf-8');
 
- /*
- 1. С помощью цикла while выведите все числа в промежутке от 0 до 100, которые
+/*
+1. С помощью цикла while выведите все числа в промежутке от 0 до 100, которые
 делятся на 3 без остатка.
 
-*/  
+*/
 
-$i=0;
-while ($i <=100) {
-	$temp=$i%3;
-	if($temp==0){
-		echo $i." ";
-	}
-$i++;
-	}
+$i = 0;
+while ($i <= 100) {
+    $temp = $i % 3;
+    if ($temp == 0) {
+        echo $i . " ";
+    }
+    $i++;
+}
 /*2. С помощью цикла do…while напишите функцию для вывода чисел от 0 до 10,
 чтобы результат выглядел так:
 0 – это ноль
@@ -29,42 +29,42 @@ $i++;
 */
 echo "<br>";
 echo "\n";
-echo "task2\n";echo "<br>";
+echo "task2\n";
+echo "<br>";
 
-$i=0;
+$i = 0;
 
-do{
+do {
+    if ($i == 0) {
+        echo "Это 0 \n";
+        $i++;
+    } else {
+        $temp = $i % 2;
+        if ($temp == 0) {
+            echo $i . " четное";
+        } else {
+            echo $i . " не четное";
+        }
+        echo "\n";
 
-	if ($i==0){
-  		echo "Это 0 \n";
-  		$i++;
-	}
-	else{
-		$temp=$i%2;
-		if($temp==0){
-			echo $i." четное";
-		}
-	 	else{
-	 		echo $i." не четное";
-	 	}
-	 	echo "\n";
-	
-	}
-$i++;   //вынесен
-}while ( $i<= 10);
+    }
+    $i++;   //вынесен
+} while ($i <= 10);
 
 echo "<br>";
-echo "\n task3 \n";echo "<br>";
+echo "\n task3 \n";
+echo "<br>";
 /*
 3. Задание со звездочкой. Выведите с помощью цикла for числа от 0 до 9, НЕ
 используя тело цикла. То есть выглядеть должно вот так:
 for(…){// здесь пусто}
  */
-for ($i=0; $i < 9; $i++,print($i.', ')) { //исправлен вывод
-	# code...
+for ($i = 0; $i < 9; $i++, print($i . ', ')) { //исправлен вывод
+    # code...
 }
 echo "<br>";
-echo "\n task4 \n";echo "<br>";
+echo "\n task4 \n";
+echo "<br>";
 
 
 /*5. Задание со звездочкой. Повторите предыдущее задание, но выводите на экран
@@ -73,54 +73,45 @@ echo "\n task4 \n";echo "<br>";
 
 
 
-<?php/*5. Задание со звездочкой. Повторите предыдущее задание, но выводите на экран
-только города, начинающиеся с буквы «К».
-*/
 
-
-
-$arr=array(
-  'Московская  область'=>["Москва","Королев"],
-  'Ленинградская область'=>["Санкт-Петербург", "Всеволожск", "Павловск", "Кронштадт"],
-  'Рязанская область'=>["Касимов","Кораблино","Михайлов","Новомичуринск"]
+$arr = array(
+    'Московская  область' => ["Москва", "Королев"],
+    'Ленинградская область' => ["Санкт-Петербург", "Всеволожск", "Павловск", "Кронштадт"],
+    'Рязанская область' => ["Касимов", "Кораблино", "Михайлов", "Новомичуринск"]
 
 );
 
 
-$keys=array_keys($arr);
-//print_r($keys);
+$keys = array_keys($arr);
 
-function print_cir($str){
- echo iconv("CP1251", "CP866", $str);
+
+function print_cir($str)
+{
+    echo iconv("CP1251", "CP866", $str);
 }
 
-function serach_city($arr,$char){
-$keys=array_keys($arr);
-	
-foreach ($keys as $key) {
-	echo ($key);echo ":"; echo "\n";
-	foreach ($arr[$key] as $city) {
-		mb_internal_encoding("UTF-8");
-		$temp=mb_substr($city,0,1);
-	if ($temp === "К") {echo $city;echo ", " ;}	
-				
-	}
-	echo "<br>"; 
-}
+function serach_city($arr, $char)
+{
+    $keys = array_keys($arr);
+
+    foreach ($keys as $key) {
+        echo($key);
+        echo ":";
+        echo "\n";
+        foreach ($arr[$key] as $city) {
+            mb_internal_encoding("UTF-8");
+            $temp = mb_substr($city, 0, 1);
+            if ($temp === "К") {
+                echo $city;
+                echo ", ";
+            }
+
+        }
+        echo "<br>";
+    }
 }
 
-serach_city($arr,'К');
-serach_city($arr,'К');
+serach_city($arr, 'К');
+serach_city($arr, 'К');
 echo "<br>";
-echo "Task 6\n";echo "<br>";
-
-
-$verbs=array('а'=> 'a', 'б' => 'b', 'в'=> 'v', 'г' => 'g','д' => 'd','е' => 'e','ё' => 'io','ж' => 'zh','г' => 'g',
-'з' => 'z', 'и' => 'i', 'й' => 'j',
-'г' => 'g',
-'к' => 'k', 'л' => 'l','м' => 'm','н' => 'n','о' => 'o','р' => 'r','с' => 's','т' => 't','у' => 'u','ф' => 'f','х' => 'ch',
-'ц' => 'c','ч' => 'ch','ш' => 'sh','щ' => 'shh','ъ' => '"','ы' => 'y','ь' => '\'','э' => 'eh','ю' => 'ju', 'я' => 'ja',
-	'э' => 'e', 'ю' => 'yu', 'я' => 'ya', ' ' => ' ','п'=>'p');
-
-//$temp=string_to_url("приветмир8");
 echo $temp;
