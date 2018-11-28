@@ -21,7 +21,7 @@
         		$message=$first/$second;
         	}
         }
-        elseif($operation!=='+' and $operation!=='-' and $operation!=='*' and $operation!=='/'){
+        else{
         	$message="Не верная операция";
         }
 
