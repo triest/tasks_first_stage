@@ -103,7 +103,6 @@ function serach_city($arr, $char)
                 echo $city;
                 echo ", ";
             }
-
         }
         echo "<br>";
     }
