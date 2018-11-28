@@ -203,10 +203,12 @@ $a = 20;
 $b = 30;
 function calc($a, $b)
 {
-    if (max1($a * $b, 100) > 100 and min1($a * $b, 1000) < 1000) {
+	$multi=$a*$b;
+	
+    if (max1($multi, 100) > 100 and min1($multi, 1000) < 1000) {
         return max1($a, $b) - min1($a, $b);
-    } elseif (max1($a * $b, 1000) > 1000) {
-        return ($a * $b) / max1($a, $b);
+    } elseif (max1($multi, 1000) > 1000) {
+        return ($multi) / max1($a, $b);
     }
 }
 
