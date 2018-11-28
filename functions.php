@@ -139,26 +139,7 @@ function mathOperation($arg1, $arg2, $operation)
 
 echo mathOperation(1, 2, "devide");
 
-function max1($arg1, $arg2)
-{
-    if ($arg1 > $arg2) {
-        return $arg1;
-    }
-    if ($arg1 < $arg2) { //2.
-        return $arg2;
-    }
 
-}
-
-function min1($arg1, $arg2)
-{
-    if ($arg1 < $arg2) {
-        return $arg1;
-    }
-    if ($arg1 > $arg2) {
-        return $arg2;
-    }
-}
 
 
 /*
@@ -189,6 +170,28 @@ echo power(3, 0);
 echo " \n 9^-2= ";
 echo power(9, -2);
 
+function max1($arg1, $arg2)
+{
+    if ($arg1 > $arg2) {
+        return $arg1;
+    }
+    if ($arg1 < $arg2) { //2.
+        return $arg2;
+    }
+
+}
+
+function min1($arg1, $arg2)
+{
+    if ($arg1 < $arg2) {
+        return $arg1;
+    }
+    if ($arg1 > $arg2) {
+        return $arg2;
+    }
+}
+
+
 echo " \ntask 7 \n";
 /*
 7. Написать функцию, которая принимают в качестве аргументов два числа и
@@ -200,14 +203,12 @@ echo " \ntask 7 \n";
 
 */
 $a = 20;
-$b = 30;
+$b = 10;
 function calc($a, $b)
 {
 	$multi=$a*$b;
-	$max=max1($multi, 100) ;
 	$max2=max1($a,$b);
 	$min2=min1($a,$b);
-	$min=min1($multi, 1000);
     if ($multi > 100 and $multi < 1000) {	
         return $max2 - $min2;
     } elseif ($multi > 1000) {
@@ -216,4 +217,6 @@ function calc($a, $b)
 }
 
 echo "\n";
-echo calc($a, $b);
+echo "Task 7 test:";
+
+echo calc(20, 30);
