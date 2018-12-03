@@ -140,8 +140,6 @@ function mathOperation($arg1, $arg2, $operation)
 echo mathOperation(1, 2, "devide");
 
 
-
-
 /*
 6. С помощью рекурсии организуйте функцию возведения числа в степень. Формат:
 function power($val, $pow), где $val – заданное число, $pow – степень.
@@ -202,19 +200,18 @@ echo " \ntask 7 \n";
 чисел больше 1000, то произведение этих чисел разделить на большее из чисел.
 
 */
-$a = 20;
-$b = 10;
+$a = 1;
+$b = 1;
 function calc($a, $b)
 {
-	$multi=$a*$b;
-    if ($multi > 100 and $multi < 1000) {	
-        return max1($a,$b) - min1($a,$b);
+    $multi = $a * $b;
+    if ($multi > 100 and $multi < 1000) {
+        return max1($a, $b) - min1($a, $b);
     } elseif ($multi > 1000) {
-        return ($multi) / max1($a,$b);
+        return ($multi) / max1($a, $b);
     }
 }
 
 echo "\n";
 echo "Task 7 test:";
 
-echo calc(20, 30);
